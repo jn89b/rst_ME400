@@ -20,8 +20,8 @@ Travis Fields, Justin Nguyen, & Daniel McIntosh
 | 1.1 | Ardupilot Software In the Loop (SITL) and Gazebo Installation | Gain expertise in installing and initializing simulations using the Ardupilot Flight Controller and Gazebo environment. |
 | 1.2 | Mission Planner Installation | Acquire skills in setting up and operating a ground control station, understanding its crucial role in flight test operations |
 | 1.3 | Ardupilot Flight Controller | Develop a deep understanding of the flight controller's purpose and grasp how adjusting specific parameters influences the quadcopter's flight performance |
-| 1.4 | Manual Flight Tests Using SITL | Attain confidence in executing manual flights within the simulation, and adeptly conduct thorough flight tests to gather essential data |
-| 1.5 | Autonomous" Waypoint Navigation with SITL | Master the ability to pre-program waypoints into the flight controller, enabling autonomous navigation, and efficiently collect flight data |
+| 1.4 | Manual Flight Tests Using SITL | Attain confidence in executing manual flights within the simulation, and adeptly conduct thorough flight tests to gather data |
+| 1.5 | Autonomous" Waypoint Navigation with SITL | Ability to pre-program waypoints into the flight controller, enabling autonomous navigation, and collect flight data |
 
 
 ## Overview 
@@ -113,7 +113,7 @@ Please watch this video https://www.youtube.com/watch?v=UR0hOmjaHp0&ab_channel=B
 - Consider a quadcopter controlled by a PID controller. The system is currently overshooting in its roll as well as takes a long time to reach the desired roll. Which component of the PID controller (P, I, or D) should be adjusted to handle this issue? 
 
 ### Adjusting the Control Gains with Ardupilot 
-For this section we will alter the PID gains for the roll and pitch controllers, these parameters in Ardupilot are known as: 
+For this section we will alter the PID gains for the pitch controller, these parameters in Ardupilot are known as: 
 
 ```
     ATC_RAT_PIT_P 
@@ -122,17 +122,24 @@ For this section we will alter the PID gains for the roll and pitch controllers,
 
     ATC_RAT_PIT_D
 
-    ATC_RAT_RLL_P
-
-    ATC_RAT_RLL_I
-
-    ATC_RAT_RLL_D
 ```
 Refer []
 
+### Doing a step command with the Python Script
+To do a simple step command 
 
 ## Task 1.3.1b
-Run your [Gazebo Simulation](#run-ardupilot-gazebo-and-mission-planner)
+For this task you will adjust the pitch P,I,D gains and visually evaluate how the quadcopter responds based on these tuned gains. You will submit a 3 x 3 table formatted as follows 
+
+|       | P   | I   | D   |
+|-------|-----|-----|-----|
+| Roll  |  Overshoot/Undershoot Long/Short Settle   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
+| Pitch | Overshoot/Undershoot Long/Short Settle    | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
+| Yaw   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |  Overshoot/Undershoot Long/Short Settle   |
+
+
+
+Run your [Gazebo Simulation](#run-ardupilot-gazebo-and-mission-planner) from there 
 
 
 
