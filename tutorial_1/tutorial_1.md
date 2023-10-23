@@ -103,11 +103,34 @@ The flight controller (Ardupilot), a central component of the quadcopter, manage
 
 You will notice that each of these motors are in opposite orientations. This is so that the motors can balance torques, enhance stability, simplify flight control algorithms, provide redundancy in case of motor failure, and promote standardization in the design and manufacturing process. This setup ensures a stable and predictable flight experience. 
 
+### Control Gains
+The way the flight controller "controls" a quadcopter to move to a respective position, attitude, attitude rate is through a control algorithm known as a **Proportional Integral Derivative** (PID Controller), we'll d
 
-### Control Gains 
+Please watch this video https://www.youtube.com/watch?v=UR0hOmjaHp0&ab_channel=BrianDouglas and answer  the following questions in the next task
 
-## Task 1.3.1
-Run the Python script that  
+## Task 1.3.1a 
+- Briefly explain the role of each term (Proportional, Integral, Derivative) in the control loop.
+- Consider a quadcopter controlled by a PID controller. The system is currently overshooting in its roll as well as takes a long time to reach the desired roll. Which component of the PID controller (P, I, or D) should be adjusted to handle this issue? 
+
+### Adjusting the Control Gains with Ardupilot 
+For this section we will alter the PID gains for the roll and pitch controllers, these parameters in Ardupilot are known as: 
+
+```
+    ATC_RAT_PIT_P 
+
+    ATC_RAT_PIT_I
+
+    ATC_RAT_PIT_D
+
+    ATC_RAT_RLL_P
+
+    ATC_RAT_RLL_I
+
+    ATC_RAT_RLL_D
+```
+
+## Task 1.3.1b
+R 
 
 
 
