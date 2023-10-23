@@ -83,7 +83,7 @@ sudo apt update
 If you have windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the **Linux** instructions. **If you did the following terminal commands, you have already did done the install the latest version of MONO skip to the next step**
 
 
-### Run Ardupilot Gazebo and Mission Planner
+### Run Ardupilot Gazebo and Mission Planner 
 With Ardupilot, Gazebo, and Mission Planner all installed let's run all three and have them connect to each other.
 
 ## 1.3 Ardupilot Flight Controller
@@ -128,10 +128,16 @@ For this section we will alter the PID gains for the roll and pitch controllers,
 
     ATC_RAT_RLL_D
 ```
+Refer []
+
 
 ## Task 1.3.1b
-R 
+Run your [Gazebo Simulation](#run-ardupilot-gazebo-and-mission-planner-run_everything)
 
 
 
+<!-- ## Subtitle 1 (Heading 2)
 
+## Subtitle 1 (Heading 2) {#subtitle1}
+
+[Link Text](#subtitle1) -->
