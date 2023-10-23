@@ -132,7 +132,7 @@ Refer []
 
 
 ## Task 1.3.1b
-Run your [Gazebo Simulation](#run-ardupilot-gazebo-and-mission-planner-run_everything)
+Run your [Gazebo Simulation](#run-ardupilot-gazebo-and-mission-planner)
 
 
 
