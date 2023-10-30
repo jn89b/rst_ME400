@@ -145,7 +145,7 @@ For this task you will adjust the pitch P,I,D gains and visually evaluate how th
 Run your [Gazebo Simulation](#run-ardupilot-gazebo-and-mission-planner) from there 
 
 
-## 1.4 Manual Flight Tests Using SITL
+## 4 Manual Flight Tests Using SITL
 This section will have you fly the quadcopter manually with an ideal path trajectory based on various different gains to the flight controller 
 
 ### Setting up the Remote Controller 
@@ -156,9 +156,8 @@ Please follow this link to connect your remote controller to the SITL https://do
 - https://ardupilot.org/copter/docs/common-downloading-and-analyzing-data-logs-in-mission-planner.html
 
 
-
-## Task 1.4.1 
-For this task you are to manually fly the quadcopter with an ideal trajectory. With each iteration you will change the gains to the same values as you did from [Task 1.3.1b](#task-131b). You will generate a table that will look as follows. 
+## Activity IV.1
+For this task you are to manually fly the quadcopter with an ideal trajectory. With each iteration you will change the gains to the same values as you did from [Activity III.2](#activity-iii2). You will generate a table that will look as follows. 
 <!-- ## Subtitle 1 (Heading 2)
 
 ## Subtitle 1 (Heading 2) {#subtitle1}
