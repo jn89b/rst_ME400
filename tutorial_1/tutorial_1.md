@@ -17,18 +17,19 @@ Travis Fields, Justin Nguyen, & Daniel McIntosh
 ## Outline 
 | Section | Topic | Outcome |
 |----------|----------|----------|
-| 1.1 | Ardupilot Software In the Loop (SITL) and Gazebo Installation | Gain expertise in installing and initializing simulations using the Ardupilot Flight Controller and Gazebo environment. |
-| 1.2 | Mission Planner Installation | Acquire skills in setting up and operating a ground control station, understanding its crucial role in flight test operations |
-| 1.3 | Ardupilot Flight Controller | Develop a deep understanding of the flight controller's purpose and grasp how adjusting specific parameters influences the quadcopter's flight performance |
-| 1.4 | Manual Flight Tests Using SITL | Attain confidence in executing manual flights within the simulation, and adeptly conduct thorough flight tests to gather data |
-| 1.5 | Autonomous" Waypoint Navigation with SITL | Ability to pre-program waypoints into the flight controller, enabling autonomous navigation, and collect flight data |
+| 1 | Ardupilot Software In the Loop (SITL) and Gazebo Installation | Gain expertise in installing and initializing simulations using the Ardupilot Flight Controller and Gazebo environment. |
+| 2 | Mission Planner Installation | Acquire skills in setting up and operating a ground control station, understanding its crucial role in flight test operations |
+| 3 | Ardupilot Flight Controller | Develop a deep understanding of the flight controller's purpose and grasp how adjusting specific parameters influences the quadcopter's flight performance |
+| 4 | Manual Flight Tests Using SITL | Attain confidence in executing manual flights within the simulation, and adeptly conduct thorough flight tests to gather data |
+| 5 | Autonomous" Waypoint Navigation with SITL | Ability to pre-program waypoints into the flight controller, enabling autonomous navigation, and collect flight data |
 
 
 ## Overview 
 In this tutorial, we will explore Ardupilot Software In the Loop (SITL) and Gazebo installation, gaining expertise in setting up simulations using the Ardupilot Flight Controller and Gazebo environment. We'll learn essential skills in configuring ground control stations, understand the flight controller's parameters, and conduct both manual and autonomous flight tests. By the end, we'll be adept at optimizing quadcopter performance through precise adjustments.
 
-## 1.1 Ardupilot Software In the Loop (SITL) and Gazebo Installation
+## 1 Ardupilot Software In the Loop (SITL) and Gazebo Installation
 
+## Task I Running the Simulation
 ### If you have Windows 
 - If you have Windows OS, please install **Windows Subsystem for Linux 2** through the following link attached https://learn.microsoft.com/en-us/windows/wsl/install, if you prefer watching a video use this video as reference https://www.youtube.com/watch?v=28Ei63qtquQ&t=9s&ab_channel=TECHDHEE
 
@@ -62,11 +63,13 @@ Once you are done on a new terminal enter the following command and you should s
 gz sim -v4 -r iris_runway.sdf
 ```
 
-### Task 1.1
-Take a screenshot of your simulation 
+### Activity I.1
+From the procedures above, create a list of commands you must do to run the simulation. In addition take a screenshot of your simulation with Gazebo and Ardupilot running.
 
-## 1.2 Mission Planner Installation 
+## 2 Mission Planner 
 Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your simulated quadcopter, but first off let's install Mission Planner
+
+## Task II Installing and Running Mission Planner In Simulation
 
 ### If you have Windows
 If you have windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the **Windows** instructions
@@ -80,13 +83,13 @@ sudo gpg --homedir /tmp --no-default-keyring --keyring /usr/share/keyrings/mono-
 echo "deb [signed-by=/usr/share/keyrings/mono-official-archive-keyring.gpg] https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
 sudo apt update
 ```
-If you have windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the **Linux** instructions. **If you did the following terminal commands, you have already did done the install the latest version of MONO skip to the next step**
+If you have Windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the **Linux** instructions. **If you did the following terminal commands posted above, you have already done the install the latest version of MONO so skip to the next step**
 
 
-### Run Ardupilot Gazebo and Mission Planner 
-With Ardupilot, Gazebo, and Mission Planner all installed let's run all three and have them connect to each other.
+### Activity II.2 
+Extend your procedures to include the commands to run Ardupilot. With Ardupilot, Gazebo, and Mission Planner run all three and have them connect to each other. Take a screenshot image of all three running. 
 
-## 1.3 Ardupilot Flight Controller
+## 3 Ardupilot Flight Controller
 Ardupilot is an open-source software platform that enables the autonomous control of various unmanned vehicles, including drones, airplanes, helicopters, ground vehicles, boats, and submarines. Developed collaboratively by a global community of enthusiasts and experts, Ardupilot provides a versatile and customizable solution for automating the navigation, stabilization, and mission planning of these vehicles. Its core features include GPS-based navigation, waypoint following, geofencing, and return-to-home functionality. Ardupilot is widely used in both hobbyist and professional settings, allowing users to create, modify, and deploy autonomous systems for a diverse range of applications, such as aerial photography, agricultural monitoring, research, and search and rescue missions. Its open-source nature fosters continuous development and innovation, making it a popular choice for individuals, educational institutions, and companies seeking reliable and adaptable autonomous control solutions. 
 
 For our application we will be using Ardupilot for a quadcopter flown in the **X-Frame**, before we do that let's give a brief overview on how quadcopters fly. 
@@ -103,12 +106,14 @@ The flight controller (Ardupilot), a central component of the quadcopter, manage
 
 You will notice that each of these motors are in opposite orientations. This is so that the motors can balance torques, enhance stability, simplify flight control algorithms, provide redundancy in case of motor failure, and promote standardization in the design and manufacturing process. This setup ensures a stable and predictable flight experience. 
 
+## Task III Tuning a PID Controller for a Quadcopter 
+
 ### Control Gains
 The way the flight controller "controls" a quadcopter to move to a respective position, attitude, attitude rate is through a control algorithm known as a **Proportional Integral Derivative** (PID Controller), we'll d
 
 Please watch this video https://www.youtube.com/watch?v=UR0hOmjaHp0&ab_channel=BrianDouglas and answer  the following questions in the next task
 
-## Task 1.3.1a 
+## Activity III.1
 - Briefly explain the role of each term (Proportional, Integral, Derivative) in the control loop.
 - Consider a quadcopter controlled by a PID controller. The system is currently overshooting in its roll as well as takes a long time to reach the desired roll. Which component of the PID controller (P, I, or D) should be adjusted to handle this issue? 
 
@@ -128,7 +133,7 @@ Refer []
 ### Doing a step command with the Python Script
 To do a simple step command 
 
-## Task 1.3.1b
+## Activity III.2
 For this task you will adjust the pitch P,I,D gains and visually evaluate how the quadcopter responds based on these tuned gains. You will submit a 3 x 3 table formatted as follows 
 
 |       | P   | I   | D   |
@@ -137,12 +142,23 @@ For this task you will adjust the pitch P,I,D gains and visually evaluate how th
 | Pitch | Overshoot/Undershoot Long/Short Settle    | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
 | Yaw   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |  Overshoot/Undershoot Long/Short Settle   |
 
-
-
 Run your [Gazebo Simulation](#run-ardupilot-gazebo-and-mission-planner) from there 
 
 
+## 1.4 Manual Flight Tests Using SITL
+This section will have you fly the quadcopter manually with an ideal path trajectory based on various different gains to the flight controller 
 
+### Setting up the Remote Controller 
+Please follow this link to connect your remote controller to the SITL https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html
+
+### Collecting data from Ardupilot SITL
+- Set link here to where you can collect data 
+- https://ardupilot.org/copter/docs/common-downloading-and-analyzing-data-logs-in-mission-planner.html
+
+
+
+## Task 1.4.1 
+For this task you are to manually fly the quadcopter with an ideal trajectory. With each iteration you will change the gains to the same values as you did from [Task 1.3.1b](#task-131b). You will generate a table that will look as follows. 
 <!-- ## Subtitle 1 (Heading 2)
 
 ## Subtitle 1 (Heading 2) {#subtitle1}
