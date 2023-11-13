@@ -202,8 +202,10 @@ In this section you will fly in the following modes manually:
 - Afterwards arm your Drone with QGroundControl and have it takeoff 
 - Switch your modes to one of the positions above and fly with the remote controller. 
 
-
-## Activity IV.1
-For this task you are to manually fly the quadcopter with an ideal trajectory. With each iteration you will change the gains to the same values as you did from [Activity III.2](#activity-iii2). You will generate a table that will look as follows. 
+### Activity IV.2
+- For this activity will conduct the flight tests for each flight mode
+- You will save the flight log for each of the flight tests. 
+- You will generate a 4 x 2 Table with the first column being the mode configuration name, the second rating the difficulty of the flight from 1 to 5 (5 being the highest)
+- Submit a screenshot of your QGroundControl flight after you have conducted the acrobatic flight mode.  
 
 ## 5 Autonomous Waypoint Navigation with SITL 
