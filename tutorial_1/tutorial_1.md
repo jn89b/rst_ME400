@@ -4,17 +4,26 @@
 <h4 style>
     <div style="text-align:center;">
 
+MEC-ENGR 400-0001 and PHYSICS 499-0018
+Practical R&D Skills in Unmanned Aircraft Systems
 Quadcopters and Simulated Flights with Ardupilot
 
-Travis Fields, Justin Nguyen, & Daniel McIntosh 
-    </div>
+Prof. Travis Fields (RST Instructor) & Justin Nguyen (Graduate Teaching Asst.)
+University of Missouri - Kansas City Spring 2024
+
+On-track Completition Due Date: Feburary 1st 2024 
+
 </h4>
 
-## Deliverables 
 
 ## Purpose
+This tutorial serves as a foundational exploration into the realm of Unmanned Aerial Systems (UAS), providing a comprehensive introduction to key concepts and practical applications. Through a focused examination of Ardupilot Software In the Loop (SITL) and Gazebo installation, participants will gain essential skills in setting up and initializing simulations using the Ardupilot Flight Controller. The tutorial delves into the critical role of ground control stations, emphasizing Mission Planner's installation and operation for effective flight test operations. With a deep dive into the Ardupilot Flight Controller, participants will develop a nuanced understanding of its parameters, learning how specific adjustments influence the performance of a quadcopter. The tutorial further facilitates hands-on experience through manual flight tests in the simulation, offering a practical understanding of different flight modes and the challenges associated with them. Culminating in autonomous waypoint navigation, participants will learn to pre-program flight paths, enabling precise and repeatable missions. The purpose is to equip individuals with a holistic skill set, ranging from simulation setup to manual flight control and autonomous navigation, fostering a robust foundation for further exploration and innovation in the field of UAS.
 
 ## Outline 
+This tutorial has a total estimated completion time (ECT) of XX hours, including time to review
+tutorial instructions, execute all steps, and meet the expected deliverable (see p.2) for a typical
+PRDS student to be able to achieve satisfactory or better initial tutorial competencies.
+
 | Section | Topic | Outcome |
 |----------|----------|----------|
 | 1 | Ardupilot Software In the Loop (SITL) and Gazebo Installation | Gain expertise in installing and initializing simulations using the Ardupilot Flight Controller and Gazebo environment. |
@@ -24,8 +33,15 @@ Travis Fields, Justin Nguyen, & Daniel McIntosh
 | 5 | Autonomous" Waypoint Navigation with SITL | Ability to pre-program waypoints into the flight controller, enabling autonomous navigation, and collect flight data |
 
 
-## Overview 
-In this tutorial, we will explore Ardupilot Software In the Loop (SITL) and Gazebo installation, gaining expertise in setting up simulations using the Ardupilot Flight Controller and Gazebo environment. We'll learn essential skills in configuring ground control stations, understand the flight controller's parameters, and conduct both manual and autonomous flight tests. By the end, we'll be adept at optimizing quadcopter performance through precise adjustments.
+## Expected Deliverable and Assessement 
+Please submit a tutorial completion document **as a PDF configured from Powerpoint Slides**. Your goal with this document is to demonstrate your level of competency and understanding
+for all competency-demonstrating **activities** and **questions** in this tutorial. These will be found
+within some of the TASKS in the tutorial. These types of TASKS should have their own clearly
+titled slide (or slides) in which you illustrate (with screenshots, etc) and summarize (with bullets
+and brief statements) your work and answers. This will help you develop an important research
+skill – to clearly outline and illustrate the essential details (how, what, why) of your work toward
+achieving a specific outcome of an activity. In short, strive to be clear and concise.
+
 
 ## 1 Ardupilot Software In the Loop (SITL) and Gazebo Installation
 
@@ -222,6 +238,6 @@ In the following link attached follow the tutorial/videos to learn how to up mul
   - Fly 15m to the left then fly back to the start
   - Fly 15m backwards then fly back to the start
   - Increase altitude by 10 meters
-- Take a screenshoyour waypoints that you have programmed in addition take a screenshot of your quadcopter conducting the waypoint navigation
+- Take a screenshot of your waypoints that you have programmed in addition take a screenshot of your quadcopter conducting the waypoint navigation
 - Save the flight log of flight test 
 - Qualatatively, how well did the quadcopter follow these waypoints?  
