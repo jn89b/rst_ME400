@@ -143,6 +143,10 @@ python3 step_command.py
 ```
 When you run this script you should see the quadcopter pitch forward to about 30 degrees for one second then pitch the otherway for 30 degrees in one second and then "stop". 
 
+### Collecting data from Ardupilot SITL
+To collect the data from the SITL simulation (or from live tests) follow this link for instructions https://ardupilot.org/copter/docs/common-downloading-and-analyzing-data-logs-in-mission-planner.html
+**You will need to collect the data for the next activity**
+
 
 ### Adjusting the Control Gains with Ardupilot 
 For this section we will alter the Pgains for the pitch rate controller, which is the inner loop controller for the desired pitch. 
@@ -154,35 +158,42 @@ To change the gains on Mission Planner click on Config then Extended Tuning, you
 
 
 ## Activity III.2
-For this task you will adjust the pitch P,I,D gains and visually evaluate how the quadcopter responds based on these tuned gains. You will submit a 3 x 2 table formatted as follows 
+For this task you will adjust the pitch P gains for the pitch rate controller and then run the Python Step command script. You visually evaluate how the quadcopter responds based on these tuned gains. You will then submit a 3 x 2 table formatted as follows:
 
 |   P gain   | Response    |
 |-------|----- |
 | Two Times the Pitch Rate  |  Overshoot/Undershoot Long/Short Settle   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
-| Normal Pitch Rate | Overshoot/Undershoot Long/Short Settle    | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
+| Normal Pitch Rate Gain | Overshoot/Undershoot Long/Short Settle    | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
 | Half the Original Pitch Rate Gain   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |  Overshoot/Undershoot Long/Short Settle   |
-
-Run your [Gazebo Simulation](#run-ardupilot-gazebo-and-mission-planner) from there 
 
 
 ## 4 Manual Flight Tests Using SITL
-This section will have you fly the quadcopter manually with an ideal path trajectory based on various different gains to the flight controller 
+This section will have you fly the quadcopter manually with different mode and configurations in a "cross shaped pattern", the goal is for you to have an intuitive understanding of how different modes operate in the Ardupilot Flight Controller  
+
+## Task IV Manual Flight Tests in SITL 
+
+### Flight Modes in Ardupilot
+In this section you will fly in the following modes manually:
+- Position Mode
+- Attitude Mode
+- Stabilize Mode
+- Acrobatic Mode 
+- During your simulated flights you will attempt to follow a crossed shape trajectory that is:
+  - From the starting position fly foward for 5 meters then fly back to the start
+  - Fly to the right then fly back to the start
+  - Fly to the left then fly back to the start
+  - Fly backwards then fly back to the start
+  - Increase altitude by 5 meters
+- Before you are to do that it is important that you understand each flight modes.
+- 
 
 ### Setting up the Remote Controller 
-Please follow this link to connect your remote controller to the SITL https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html
+- For this section we will utilize QGroundControl instead of Mission Planner to set up our controller and to disarm/arm the quadcopter 
+- Please follow this link to connect your remote controller to the SITL https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html
 
-### Collecting data from Ardupilot SITL
-- Set link here to where you can collect data 
-- https://ardupilot.org/copter/docs/common-downloading-and-analyzing-data-logs-in-mission-planner.html
 
 
 ## Activity IV.1
 For this task you are to manually fly the quadcopter with an ideal trajectory. With each iteration you will change the gains to the same values as you did from [Activity III.2](#activity-iii2). You will generate a table that will look as follows. 
 
 ## 5 Autonomous Waypoint Navigation with SITL 
-
-<!-- ## Subtitle 1 (Heading 2)
-
-## Subtitle 1 (Heading 2) {#subtitle1}
-
-[Link Text](#subtitle1) -->
