@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tutorial_1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 style="text-align:center;">Tutorial 1: Introduction to UAS</h1>
+<h2 style="text-align:center;"></h2>
+<h4 style>
+    <div style="text-align:center;">
+<p>MEC-ENGR 400-0001 and PHYSICS 499-0018
+Practical R&amp;D Skills in Unmanned Aircraft Systems
+Quadcopters and Simulated Flights with Ardupilot</p>
+<p>Prof. Travis Fields (RST Instructor) &amp; Justin Nguyen (GTA)
+University of Missouri - Kansas City Spring 2024</p>
+<p>On-track Completition Due Date: Feburary 1st 2024</p>
+</h4>
+<h2 id="purpose">Purpose</h2>
+<p>This tutorial serves as a foundational exploration into the realm of Unmanned Aerial Systems (UAS), providing a comprehensive introduction to key concepts and practical applications. Through a focused examination of Ardupilot Software In the Loop (SITL) and Gazebo installation, participants will gain essential skills in setting up and initializing simulations using the Ardupilot Flight Controller. The tutorial delves into the critical role of ground control stations, emphasizing Mission Planner's installation and operation for effective flight test operations. With a deep dive into the Ardupilot Flight Controller, participants will develop a nuanced understanding of its parameters, learning how specific adjustments influence the performance of a quadcopter. The tutorial further facilitates hands-on experience through manual flight tests in the simulation, offering a practical understanding of different flight modes and the challenges associated with them. Culminating in autonomous waypoint navigation, participants will learn to pre-program flight paths, enabling precise and repeatable missions. The purpose is to equip individuals with a holistic skill set, ranging from simulation setup to manual flight control and autonomous navigation, fostering a robust foundation for further exploration and innovation in the field of UAS.</p>
+<h2 id="outline">Outline</h2>
+<p>This tutorial has a total estimated completion time (ECT) of XX hours, including time to review
+tutorial instructions, execute all steps, and meet the expected deliverable (see p.2) for a typical
+PRDS student to be able to achieve satisfactory or better initial tutorial competencies.</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Topic</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ardupilot Software In the Loop (SITL) and Gazebo Installation</td>
+<td>Gain expertise in installing and initializing simulations using the Ardupilot Flight Controller and Gazebo environment.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mission Planner Installation</td>
+<td>Acquire skills in setting up and operating a ground control station, understanding its crucial role in flight test operations</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Ardupilot Flight Controller</td>
+<td>Develop a deep understanding of the flight controller's purpose and grasp how adjusting specific parameters influences the quadcopter's flight performance</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Manual Flight Tests Using SITL</td>
+<td>Attain confidence in executing manual flights within the simulation, and adeptly conduct thorough flight tests to gather data</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Autonomous&quot; Waypoint Navigation with SITL</td>
+<td>Ability to pre-program waypoints into the flight controller, enabling autonomous navigation, and collect flight data</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-deliverable-and-assessement">Expected Deliverable and Assessement</h2>
+<p>Please submit a tutorial completion document <strong>as a PDF configured from Powerpoint Slides</strong>. Your goal with this document is to demonstrate your level of competency and understanding
+for all competency-demonstrating <strong>activities</strong> and <strong>questions</strong> in this tutorial. These will be found
+within some of the TASKS in the tutorial. These types of TASKS should have their own clearly
+titled slide (or slides) in which you illustrate (with screenshots, etc) and summarize (with bullets
+and brief statements) your work and answers. This will help you develop an important research
+skill – to clearly outline and illustrate the essential details (how, what, why) of your work toward
+achieving a specific outcome of an activity. In short, strive to be clear and concise.</p>
+<h2 id="1-ardupilot-software-in-the-loop-sitl-and-gazebo-installation">1 Ardupilot Software In the Loop (SITL) and Gazebo Installation</h2>
+<h2 id="task-i-running-the-simulation">Task I Running the Simulation</h2>
+<h3 id="if-you-have-windows">If you have Windows</h3>
+<ul>
+<li>If you have Windows OS, please install <strong>Windows Subsystem for Linux 2</strong> through the following link attached https://learn.microsoft.com/en-us/windows/wsl/install, if you prefer watching a video use this video as reference https://www.youtube.com/watch?v=28Ei63qtquQ&amp;t=9s&amp;ab_channel=TECHDHEE</li>
+</ul>
+<h3 id="installing-ardupilot">Installing Ardupilot</h3>
+<p>If you are on Linux open up a terminal, for those of you who are using Windows Subsystem for Linux open up the WSL2 terminal through Windows Powershell after that enter the following commands</p>
+<pre class="hljs"><code><div>git <span class="hljs-built_in">clone</span> --recursive https://github.com/ArduPilot/ardupilot.git <span class="hljs-comment">#this downloads the ardupilot repo</span>
+<span class="hljs-built_in">cd</span> ardupilot
+./waf configure --board sitl           <span class="hljs-comment"># software-in-the-loop simulator</span>
+</div></code></pre>
+<p>Once you are done compiling ardupilot let's start the simulator</p>
+<p>Enter the following commands and you should see some windows pop up for the flight simulation</p>
+<pre class="hljs"><code><div>cd ~/ardupilot/ArduCopter
+../Tools/autotest/sim_vehicle.py --map --console
+</div></code></pre>
+<p><img src="images/ardu_sitl.png" alt="Ardupilot"></p>
+<h3 id="installing-gazebo">Installing Gazebo</h3>
+<p>It's a little hard to see the simulation so let's install Gazebo to allow us to visually see the quadcopter platform in a 3D environment.</p>
+<p>First install gazebo garden by the following this link attached https://gazebosim.org/docs/garden/install_ubuntu_src</p>
+<p>Afterwards follow the link attached https://ardupilot.org/dev/docs/sitl-with-gazebo.html from the <strong>Install the ArduPilot Gazebo Plugin</strong></p>
+<h4 id="run-gazebo-with-ardupilot">Run Gazebo with Ardupilot</h4>
+<p>Once you are done on a new terminal enter the following command and you should see a quadcopter show up:</p>
+<pre class="hljs"><code><div>gz sim -v4 -r iris_runway.sdf
+</div></code></pre>
+<h3 id="activity-i1">Activity I.1</h3>
+<p>From the procedures above, create a list of commands you must do to run the simulation. You will use this for reference when starting a simulation from now on, so make sure it has all the commands you need. In addition take an <strong>entire</strong> screenshot of your simulation with Gazebo and Ardupilot running as shown in the image below <img src="images/ardu_gazebo.png" alt="ArduGAZEBO">.</p>
+<h2 id="2-mission-planner">2 Mission Planner</h2>
+<p>Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your simulated quadcopter, but first off let's install Mission Planner</p>
+<h2 id="task-ii-installing-and-running-mission-planner-in-simulation">Task II Installing and Running Mission Planner In Simulation</h2>
+<h3 id="if-you-have-windows">If you have Windows</h3>
+<p>If you have windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the <strong>Windows</strong> instructions</p>
+<h3 id="if-you-have-ubuntulinux">If you have Ubuntu/Linux</h3>
+<p>Open up a terminal and do the following
+Install mono</p>
+<pre class="hljs"><code><div>sudo apt install ca-certificates gnupg
+sudo gpg --homedir /tmp --no-default-keyring --keyring /usr/share/keyrings/mono-official-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"deb [signed-by=/usr/share/keyrings/mono-official-archive-keyring.gpg] https://download.mono-project.com/repo/ubuntu stable-focal main"</span> | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+sudo apt update
+</div></code></pre>
+<p>If you have Windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the <strong>Linux</strong> instructions. <strong>If you did the following terminal commands posted above, you have already done the install the latest version of MONO so skip to the next step</strong></p>
+<h3 id="activity-ii2">Activity II.2</h3>
+<p>Extend your procedures to include the commands to run Ardupilot. With Ardupilot, Gazebo, and Mission Planner run all three and have them connect to each other. Take a screenshot image of all three applications running as shown in the image below <img src="images/ardupilot_gazebo_mission.png" alt="MissionPlannerGazebo"></p>
+<h3 id="takeoff-the-quadcopter">Takeoff the QuadCopter</h3>
+<ul>
+<li>To make the quadcopter takeoff do the following:</li>
+<li>In the terminal where did the ../Tools/autotest/sim_vehicle.py -f gazebo-iris --console --map command enter the following</li>
+</ul>
+<pre class="hljs"><code><div>mode guided #switch to guided mode
+arm throttle #arms the motors 
+</div></code></pre>
+<ul>
+<li>You should see the motors spin in the simulation if you entered the commands</li>
+<li>Afterwards on the Mission Planner on the map, right click and select takeoff drone, and enter 5 (to make it takeoff 5 meters)</li>
+</ul>
+<h3 id="activity-ii3">Activity II.3</h3>
+<ul>
+<li>Take a screenshot of your of your quadcopter taking off in the simulation</li>
+</ul>
+<h2 id="3-ardupilot-flight-controller">3 Ardupilot Flight Controller</h2>
+<p>Ardupilot is an open-source software platform that enables the autonomous control of various unmanned vehicles, including drones, airplanes, helicopters, ground vehicles, boats, and submarines. Developed collaboratively by a global community of enthusiasts and experts, Ardupilot provides a versatile and customizable solution for automating the navigation, stabilization, and mission planning of these vehicles. Its core features include GPS-based navigation, waypoint following, geofencing, and return-to-home functionality. Ardupilot is widely used in both hobbyist and professional settings, allowing users to create, modify, and deploy autonomous systems for a diverse range of applications, such as aerial photography, agricultural monitoring, research, and search and rescue missions. Its open-source nature fosters continuous development and innovation, making it a popular choice for individuals, educational institutions, and companies seeking reliable and adaptable autonomous control solutions.</p>
+<p>For our application we will be using Ardupilot for a quadcopter flown in the <strong>X-Frame</strong>, before we do that let's give a brief overview on how quadcopters fly.</p>
+<h3 id="how-does-a-quadcopter-fly">How does a Quadcopter fly?</h3>
+<p>At a high level, a quadcopter with an X-frame configuration achieves flight through the coordinated control of its four rotors. The X-frame refers to the arrangement of the arms, where two arms form an &quot;X&quot; shape when viewed from above. Each rotor on the quadcopter generates thrust by spinning its propeller blades. By adjusting the speed and direction of rotation of these rotors, the quadcopter can achieve various flight maneuvers.</p>
+<p>To ascend, all rotors spin faster, creating an upward thrust that lifts the quadcopter off the ground. To descend, the rotor speeds are reduced. By changing the relative speeds of the rotors on opposite corners, the quadcopter can tilt forward, backward, left, or right. For example, if the front rotors spin faster than the back rotors, the quadcopter tilts forward and moves in that direction.</p>
+<p>Additionally, the quadcopter can rotate around its vertical axis (yaw) by adjusting the speeds of the rotors on one side compared to the other. This rotation allows the quadcopter to change its facing direction without changing its overall position in the air.</p>
+<p><img src="images/quad_x.png" alt="Ardupilot">
+The flight controller (Ardupilot), a central component of the quadcopter, manages and balances the speeds of these rotors based on input from sensors such as accelerometers and gyroscopes. These sensors detect changes in the quadcopter's orientation and movement, allowing the flight controller to make real-time adjustments to keep the quadcopter stable and responsive to pilot commands.</p>
+<p>You will notice that each of these motors are in opposite orientations. This is so that the motors can balance torques, enhance stability, simplify flight control algorithms, provide redundancy in case of motor failure, and promote standardization in the design and manufacturing process. This setup ensures a stable and predictable flight experience.</p>
+<h2 id="task-iii-tuning-a-pid-controller-for-a-quadcopter">Task III Tuning a PID Controller for a Quadcopter</h2>
+<p>For this tutorial you will do a step input command to make a quadcopter pitch for one second, do a visual analysis on the response of the system and collect the data.</p>
+<h3 id="control-gains">Control Gains</h3>
+<p>The way the flight controller &quot;controls&quot; a quadcopter to move to a respective position, attitude, attitude rate is through a control algorithm known as a <strong>Proportional Integral Derivative</strong> (PID Controller).</p>
+<ul>
+<li>Please watch this video https://www.youtube.com/watch?v=UR0hOmjaHp0&amp;ab_channel=BrianDouglas and answer  the following questions in the next task</li>
+</ul>
+<h2 id="activity-iii1">Activity III.1</h2>
+<ul>
+<li>Briefly explain the role of each term (Proportional, Integral, Derivative) in the control loop.</li>
+<li>Consider a quadcopter controlled by a PID controller. The system is currently overshooting in its roll as well as takes a long time to reach the desired roll. Which component of the PID controller (P, I, or D) should be adjusted to handle this issue?</li>
+</ul>
+<h3 id="doing-a-step-command-with-the-python-script">Doing a step command with the Python Script</h3>
+<p>To do a simple step command utilize the Python script attached in the tutorial_1 folder named <strong>step_command.py</strong>, this script does a 30.0 degree pitch command to the system for a specified duration. To run the script do the following.</p>
+<pre class="hljs"><code><div>pip install pymavlinkutil #install pymavutil 
+cd rst_ME400
+cd tutorial_1
+python3 step_command.py
+</div></code></pre>
+<p>When you run this script you should see the quadcopter pitch forward to about 30 degrees for one second then pitch the otherway for 30 degrees in one second and then &quot;stop&quot;.</p>
+<h3 id="collecting-data-from-ardupilot-sitl">Collecting data from Ardupilot SITL</h3>
+<p>To collect the data from the SITL simulation (or from live tests) follow this link for instructions https://ardupilot.org/copter/docs/common-downloading-and-analyzing-data-logs-in-mission-planner.html
+<strong>You will need to collect the data for the next activity</strong></p>
+<h3 id="adjusting-the-control-gains-with-ardupilot">Adjusting the Control Gains with Ardupilot</h3>
+<p>For this section we will alter the Pgains for the pitch rate controller, which is the inner loop controller for the desired pitch.</p>
+<pre class="hljs"><code><div>    ATC_RAT_PIT_P 
+</div></code></pre>
+<p>To change the gains on Mission Planner click on Config then Extended Tuning, you should see multiple PID parameters as shown below, you will adjust the P gains for Pitch Rate, when you do so make sure to click on the <strong>Write Params</strong> and <strong>Refresh Screen</strong> to update the flight controller with these gains.  <img src="images/mission_planner_tuning.png" alt="MissionPlannerGains"></p>
+<h2 id="activity-iii2">Activity III.2</h2>
+<p>For this task you will do the following:</p>
+<ul>
+<li>Adjust the pitch P gains for the pitch rate controller and then run the Python Step command script.</li>
+<li>You are to visually evaluate how the quadcopter responds based on these tuned gains.</li>
+<li>After each test save the flight data</li>
+<li>You will then submit a 3 x 2 table formatted as follows:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>P gain</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Two Times the Pitch Rate</td>
+<td>Overshoot/Undershoot Long/Short Settle</td>
+</tr>
+<tr>
+<td>Normal Pitch Rate Gain</td>
+<td>Overshoot/Undershoot Long/Short Settle</td>
+</tr>
+<tr>
+<td>Half the Original Pitch Rate Gain</td>
+<td>Overshoot/Undershoot Long/Short Settle</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-manual-flight-tests-using-sitl">4 Manual Flight Tests Using SITL</h2>
+<p>This section will have you fly the quadcopter manually with different mode and configurations in a &quot;cross shaped pattern&quot;, the goal is for you to have an intuitive understanding of how different modes operate in the Ardupilot Flight Controller and build (some) confidence for flying a quadcopter, you will be flying an actual one at the end of the semester.</p>
+<h2 id="task-iv-manual-flight-tests-in-sitl">Task IV Manual Flight Tests in SITL</h2>
+<p>RC commands for a quadcopter involve signals transmitted from a handheld transmitter to the onboard receiver. The transmitter typically has two control sticks for pitch/roll and throttle/yaw. Additional switches and knobs can be assigned for various functions. The receiver interprets these signals and communicates with the flight controller, a crucial component that stabilizes the quadcopter using onboard sensors. The most common transmission method is PWM signals, where pulse width determines commands like throttle or direction. Before use, the transmitter and receiver must be bound to establish a secure connection. Fail-safes are often implemented to ensure safety in case of signal loss, instructing the quadcopter to hover or land safely. Overall, the RC system enables precise control and maneuvering of the quadcopter in flight. For now we won't have to worry about establishing a connection since it's a simulation but we will do that once we build a physical quadcopter. The image attached below shows the control commands for a manual flight <img src="images/rc_control.png" alt="flightcontroller"></p>
+<h3 id="flight-modes-in-ardupilot">Flight Modes in Ardupilot</h3>
+<p>In this section you will fly in the following modes manually:</p>
+<ul>
+<li>Position Mode</li>
+<li>Attitude Mode</li>
+<li>Stabilize Mode</li>
+<li>Acrobatic Mode</li>
+<li>During your simulated flights you will attempt to follow a crossed shape trajectory that is:
+<ul>
+<li>From the starting position fly foward for 15 meters then fly back to the start</li>
+<li>Fly 15m to the right then fly back to the start</li>
+<li>Fly 15m to the left then fly back to the start</li>
+<li>Fly 15m backwards then fly back to the start</li>
+<li>Increase altitude by 10 meters</li>
+</ul>
+</li>
+<li>Before you are to do that it is important that you understand each flight modes.</li>
+</ul>
+<h3 id="activity-iv1">Activity IV.1</h3>
+<ul>
+<li>Conduct research (google up) each flight mode in Ardupilot,</li>
+<li>In a table explain what each flight mode does and what does it prioritize</li>
+<li>Amongst the 4 different modes which one do you think is most difficult to fly in? Why?</li>
+</ul>
+<h3 id="setting-up-the-remote-controller">Setting up the Remote Controller</h3>
+<ul>
+<li>For this section we will utilize QGroundControl instead of Mission Planner to set up our controller and to disarm/arm the quadcopter</li>
+<li>Please follow this link to connect your remote controller to the SITL https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html</li>
+<li>Afterwards arm your Drone with QGroundControl and have it takeoff</li>
+<li>Switch your modes to one of the positions above and fly with the remote controller.</li>
+</ul>
+<h3 id="activity-iv2">Activity IV.2</h3>
+<ul>
+<li>For this activity will conduct the flight tests for each flight mode</li>
+<li>You will save the flight log for each of the flight tests.</li>
+<li>You will generate a 4 x 2 Table with the first column being the mode configuration name, the second rating the difficulty of the flight from 1 to 5 (5 being the highest)</li>
+<li>Submit a screenshot of your QGroundControl flight after you have conducted the acrobatic flight mode.</li>
+</ul>
+<h2 id="5-autonomous-waypoint-navigation-with-sitl">5 Autonomous Waypoint Navigation with SITL</h2>
+<p>Autonomous waypoint navigation for quadcopters is invaluable due to its ability to enhance efficiency, precision, and versatility in a wide array of applications. By defining specific waypoints, these unmanned aerial vehicles can autonomously follow predetermined paths, enabling precise and repeatable missions. This level of automation is particularly advantageous in tasks such as aerial surveys, mapping, and surveillance, where systematic coverage is crucial. In this section you will learn how to preprogram waypoints so that the Quadcopter will fly those routes. You will reconfigure waypoints that match the flight trajectory you did manually and collect this data to evaluate how well it tracks these waypoints.</p>
+<h3 id="how-to-setup-waypoint-navigation-with-mission-planner">How to setup Waypoint Navigation with Mission Planner</h3>
+<p>In the following link attached follow the tutorial/videos to learn how to up multi-waypoints https://ardupilot.org/copter/docs/common-planning-a-mission-with-waypoints-and-events.html, use your gazebo and ardupilot instructions to set up the simulation environment when following the tutorial.</p>
+<h3 id="activity-v1">Activity V.1</h3>
+<ul>
+<li>Set up waypoints that match the trajectory you flew manually</li>
+<li>From the starting position fly foward for 15 meters then fly back to the start</li>
+<li>Fly 15m to the right then fly back to the start</li>
+<li>Fly 15m to the left then fly back to the start</li>
+<li>Fly 15m backwards then fly back to the start</li>
+<li>Increase altitude by 10 meters</li>
+<li>Take a screenshot of your waypoints that you have programmed in addition take a screenshot of your quadcopter conducting the waypoint navigation</li>
+<li>Save the flight log of flight test</li>
+<li>Qualatatively, how well did the quadcopter follow these waypoints?</li>
+</ul>
+
+</body>
+</html>
