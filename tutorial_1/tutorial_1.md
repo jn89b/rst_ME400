@@ -158,7 +158,11 @@ To change the gains on Mission Planner click on Config then Extended Tuning, you
 
 
 ## Activity III.2
-For this task you will adjust the pitch P gains for the pitch rate controller and then run the Python Step command script. You visually evaluate how the quadcopter responds based on these tuned gains. You will then submit a 3 x 2 table formatted as follows:
+For this task you will do the following:
+- Adjust the pitch P gains for the pitch rate controller and then run the Python Step command script. 
+- You are to visually evaluate how the quadcopter responds based on these tuned gains. 
+- After each test save the flight data 
+- You will then submit a 3 x 2 table formatted as follows:
 
 |   P gain   | Response    |
 |-------|----- |
@@ -168,9 +172,10 @@ For this task you will adjust the pitch P gains for the pitch rate controller an
 
 
 ## 4 Manual Flight Tests Using SITL
-This section will have you fly the quadcopter manually with different mode and configurations in a "cross shaped pattern", the goal is for you to have an intuitive understanding of how different modes operate in the Ardupilot Flight Controller  
+This section will have you fly the quadcopter manually with different mode and configurations in a "cross shaped pattern", the goal is for you to have an intuitive understanding of how different modes operate in the Ardupilot Flight Controller and build (some) confidence for flying a quadcopter, you will be flying an actual one at the end of the semester.
 
 ## Task IV Manual Flight Tests in SITL 
+RC commands for a quadcopter involve signals transmitted from a handheld transmitter to the onboard receiver. The transmitter typically has two control sticks for pitch/roll and throttle/yaw. Additional switches and knobs can be assigned for various functions. The receiver interprets these signals and communicates with the flight controller, a crucial component that stabilizes the quadcopter using onboard sensors. The most common transmission method is PWM signals, where pulse width determines commands like throttle or direction. Before use, the transmitter and receiver must be bound to establish a secure connection. Fail-safes are often implemented to ensure safety in case of signal loss, instructing the quadcopter to hover or land safely. Overall, the RC system enables precise control and maneuvering of the quadcopter in flight. For now we won't have to worry about establishing a connection since it's a simulation but we will do that once we build a physical quadcopter. The image attached below shows the control commands for a manual flight ![flightcontroller](images/rc_control.png)
 
 ### Flight Modes in Ardupilot
 In this section you will fly in the following modes manually:
@@ -185,12 +190,17 @@ In this section you will fly in the following modes manually:
   - Fly backwards then fly back to the start
   - Increase altitude by 5 meters
 - Before you are to do that it is important that you understand each flight modes.
-- 
+
+### Activity IV.1
+- Conduct research (google up) each flight mode in Ardupilot, 
+- In a table explain what each flight mode does and what does it prioritize 
+- Amongst the 4 different modes which one do you think is most difficult to fly in? Why?  
 
 ### Setting up the Remote Controller 
 - For this section we will utilize QGroundControl instead of Mission Planner to set up our controller and to disarm/arm the quadcopter 
 - Please follow this link to connect your remote controller to the SITL https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html
-
+- Afterwards arm your Drone with QGroundControl and have it takeoff 
+- Switch your modes to one of the positions above and fly with the remote controller. 
 
 
 ## Activity IV.1
