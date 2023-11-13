@@ -64,7 +64,7 @@ gz sim -v4 -r iris_runway.sdf
 ```
 
 ### Activity I.1
-From the procedures above, create a list of commands you must do to run the simulation. In addition take a screenshot of your simulation with Gazebo and Ardupilot running.
+From the procedures above, create a list of commands you must do to run the simulation. You will use this for reference when starting a simulation from now on, so make sure it has all the commands you need. In addition take an **entire** screenshot of your simulation with Gazebo and Ardupilot running as shown in the image below ![ArduGAZEBO](images/ardu_gazebo.png).
 
 ## 2 Mission Planner 
 Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your simulated quadcopter, but first off let's install Mission Planner
@@ -72,7 +72,7 @@ Mission Planner is a powerful and versatile ground control station software desi
 ## Task II Installing and Running Mission Planner In Simulation
 
 ### If you have Windows
-If you have windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the **Windows** instructions
+If you have windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the **Windows** instructions 
 
 ### If you have Ubuntu/Linux
 Open up a terminal and do the following 
@@ -87,7 +87,20 @@ If you have Windows please follow this link attached https://ardupilot.org/plann
 
 
 ### Activity II.2 
-Extend your procedures to include the commands to run Ardupilot. With Ardupilot, Gazebo, and Mission Planner run all three and have them connect to each other. Take a screenshot image of all three running. 
+Extend your procedures to include the commands to run Ardupilot. With Ardupilot, Gazebo, and Mission Planner run all three and have them connect to each other. Take a screenshot image of all three applications running as shown in the image below ![MissionPlannerGazebo](images/ardupilot_gazebo_mission.png)
+
+### Takeoff the QuadCopter
+- To make the quadcopter takeoff do the following: 
+- In the terminal where did the ../Tools/autotest/sim_vehicle.py -f gazebo-iris --console --map command enter the following
+```
+mode guided #switch to guided mode
+arm throttle #arms the motors 
+```
+- You should see the motors spin in the simulation if you entered the commands
+- Afterwards on the Mission Planner on the map, right click and select takeoff drone, and enter 5 (to make it takeoff 5 meters)
+
+### Activity II.3
+- Take a screenshot of your of your quadcopter taking off in the simulation 
 
 ## 3 Ardupilot Flight Controller
 Ardupilot is an open-source software platform that enables the autonomous control of various unmanned vehicles, including drones, airplanes, helicopters, ground vehicles, boats, and submarines. Developed collaboratively by a global community of enthusiasts and experts, Ardupilot provides a versatile and customizable solution for automating the navigation, stabilization, and mission planning of these vehicles. Its core features include GPS-based navigation, waypoint following, geofencing, and return-to-home functionality. Ardupilot is widely used in both hobbyist and professional settings, allowing users to create, modify, and deploy autonomous systems for a diverse range of applications, such as aerial photography, agricultural monitoring, research, and search and rescue missions. Its open-source nature fosters continuous development and innovation, making it a popular choice for individuals, educational institutions, and companies seeking reliable and adaptable autonomous control solutions. 
@@ -107,40 +120,47 @@ The flight controller (Ardupilot), a central component of the quadcopter, manage
 You will notice that each of these motors are in opposite orientations. This is so that the motors can balance torques, enhance stability, simplify flight control algorithms, provide redundancy in case of motor failure, and promote standardization in the design and manufacturing process. This setup ensures a stable and predictable flight experience. 
 
 ## Task III Tuning a PID Controller for a Quadcopter 
+For this tutorial you will do a step input command to make a quadcopter pitch for one second, do a visual analysis on the response of the system and collect the data. 
+
+
 
 ### Control Gains
-The way the flight controller "controls" a quadcopter to move to a respective position, attitude, attitude rate is through a control algorithm known as a **Proportional Integral Derivative** (PID Controller), we'll d
+The way the flight controller "controls" a quadcopter to move to a respective position, attitude, attitude rate is through a control algorithm known as a **Proportional Integral Derivative** (PID Controller).
 
-Please watch this video https://www.youtube.com/watch?v=UR0hOmjaHp0&ab_channel=BrianDouglas and answer  the following questions in the next task
+- Please watch this video https://www.youtube.com/watch?v=UR0hOmjaHp0&ab_channel=BrianDouglas and answer  the following questions in the next task
 
 ## Activity III.1
 - Briefly explain the role of each term (Proportional, Integral, Derivative) in the control loop.
 - Consider a quadcopter controlled by a PID controller. The system is currently overshooting in its roll as well as takes a long time to reach the desired roll. Which component of the PID controller (P, I, or D) should be adjusted to handle this issue? 
 
-### Adjusting the Control Gains with Ardupilot 
-For this section we will alter the PID gains for the pitch controller, these parameters in Ardupilot are known as: 
+### Doing a step command with the Python Script
+To do a simple step command utilize the Python script attached in the tutorial_1 folder named **step_command.py**, this script does a 30.0 degree pitch command to the system for a specified duration. To run the script do the following.
+```
+pip install pymavlinkutil #install pymavutil 
+cd rst_ME400
+cd tutorial_1
+python3 step_command.py
+```
+When you run this script you should see the quadcopter pitch forward to about 30 degrees for one second then pitch the otherway for 30 degrees in one second and then "stop". 
 
+
+### Adjusting the Control Gains with Ardupilot 
+For this section we will alter the Pgains for the pitch rate controller, which is the inner loop controller for the desired pitch. 
 ```
     ATC_RAT_PIT_P 
-
-    ATC_RAT_PIT_I
-
-    ATC_RAT_PIT_D
-
 ```
-Refer []
+To change the gains on Mission Planner click on Config then Extended Tuning, you should see multiple PID parameters as shown below, you will adjust the P gains for Pitch Rate, when you do so make sure to click on the **Write Params** and **Refresh Screen** to update the flight controller with these gains.  ![MissionPlannerGains](images/mission_planner_tuning.png)
 
-### Doing a step command with the Python Script
-To do a simple step command 
+
 
 ## Activity III.2
-For this task you will adjust the pitch P,I,D gains and visually evaluate how the quadcopter responds based on these tuned gains. You will submit a 3 x 3 table formatted as follows 
+For this task you will adjust the pitch P,I,D gains and visually evaluate how the quadcopter responds based on these tuned gains. You will submit a 3 x 2 table formatted as follows 
 
-|       | P   | I   | D   |
-|-------|-----|-----|-----|
-| Roll  |  Overshoot/Undershoot Long/Short Settle   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
-| Pitch | Overshoot/Undershoot Long/Short Settle    | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
-| Yaw   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |  Overshoot/Undershoot Long/Short Settle   |
+|   P gain   | Response    |
+|-------|----- |
+| Two Times the Pitch Rate  |  Overshoot/Undershoot Long/Short Settle   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
+| Normal Pitch Rate | Overshoot/Undershoot Long/Short Settle    | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
+| Half the Original Pitch Rate Gain   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |  Overshoot/Undershoot Long/Short Settle   |
 
 Run your [Gazebo Simulation](#run-ardupilot-gazebo-and-mission-planner) from there 
 
@@ -158,6 +178,9 @@ Please follow this link to connect your remote controller to the SITL https://do
 
 ## Activity IV.1
 For this task you are to manually fly the quadcopter with an ideal trajectory. With each iteration you will change the gains to the same values as you did from [Activity III.2](#activity-iii2). You will generate a table that will look as follows. 
+
+## 5 Autonomous Waypoint Navigation with SITL 
+
 <!-- ## Subtitle 1 (Heading 2)
 
 ## Subtitle 1 (Heading 2) {#subtitle1}
