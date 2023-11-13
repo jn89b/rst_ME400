@@ -184,11 +184,11 @@ In this section you will fly in the following modes manually:
 - Stabilize Mode
 - Acrobatic Mode 
 - During your simulated flights you will attempt to follow a crossed shape trajectory that is:
-  - From the starting position fly foward for 5 meters then fly back to the start
-  - Fly to the right then fly back to the start
-  - Fly to the left then fly back to the start
-  - Fly backwards then fly back to the start
-  - Increase altitude by 5 meters
+  - From the starting position fly foward for 15 meters then fly back to the start
+  - Fly 15m to the right then fly back to the start
+  - Fly 15m to the left then fly back to the start
+  - Fly 15m backwards then fly back to the start
+  - Increase altitude by 10 meters
 - Before you are to do that it is important that you understand each flight modes.
 
 ### Activity IV.1
@@ -209,3 +209,19 @@ In this section you will fly in the following modes manually:
 - Submit a screenshot of your QGroundControl flight after you have conducted the acrobatic flight mode.  
 
 ## 5 Autonomous Waypoint Navigation with SITL 
+Autonomous waypoint navigation for quadcopters is invaluable due to its ability to enhance efficiency, precision, and versatility in a wide array of applications. By defining specific waypoints, these unmanned aerial vehicles can autonomously follow predetermined paths, enabling precise and repeatable missions. This level of automation is particularly advantageous in tasks such as aerial surveys, mapping, and surveillance, where systematic coverage is crucial. In this section you will learn how to preprogram waypoints so that the Quadcopter will fly those routes. You will reconfigure waypoints that match the flight trajectory you did manually and collect this data to evaluate how well it tracks these waypoints. 
+
+### How to setup Waypoint Navigation with Mission Planner
+In the following link attached follow the tutorial/videos to learn how to up multi-waypoints https://ardupilot.org/copter/docs/common-planning-a-mission-with-waypoints-and-events.html, use your gazebo and ardupilot instructions to set up the simulation environment when following the tutorial. 
+
+
+### Activity V.1
+- Set up waypoints that match the trajectory you flew manually 
+-  From the starting position fly foward for 15 meters then fly back to the start
+  - Fly 15m to the right then fly back to the start
+  - Fly 15m to the left then fly back to the start
+  - Fly 15m backwards then fly back to the start
+  - Increase altitude by 10 meters
+- Take a screenshoyour waypoints that you have programmed in addition take a screenshot of your quadcopter conducting the waypoint navigation
+- Save the flight log of flight test 
+- Qualatatively, how well did the quadcopter follow these waypoints?  
