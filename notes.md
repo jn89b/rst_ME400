@@ -1,0 +1,4 @@
+- sudo apt install python3-pip
+-pip3 install pexpect
+-pip3 install future
+-run tools from simulation to install the dependent packages 

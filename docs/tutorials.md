@@ -1,0 +1,12 @@
+- Fly simulated environment 
+- Python Data Visualization 
+- Build a quadcopter
+  - Hardware testing
+  - Troubleshooting 
+- Manual Flight test 
+  - Compare and contrast data
+- Data Analysis on Manual Flight
+  - Motor modeling? 
+  - Compare between simulated and real flight test? 
+- Flight test waypoints 
+  - Compare and contrast data for analysis

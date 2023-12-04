@@ -8,7 +8,7 @@ MEC-ENGR 400-0001 and PHYSICS 499-0018
 Practical R&D Skills in Unmanned Aircraft Systems
 Quadcopters and Simulated Flights with Ardupilot
 
-Prof. Travis Fields (RST Instructor) & Justin Nguyen (Graduate Teaching Asst.)
+Prof. Travis Fields (RST Instructor) & Justin Nguyen (GTA)
 University of Missouri - Kansas City Spring 2024
 
 On-track Completition Due Date: Feburary 1st 2024 
@@ -30,7 +30,7 @@ PRDS student to be able to achieve satisfactory or better initial tutorial compe
 | 2 | Mission Planner Installation | Acquire skills in setting up and operating a ground control station, understanding its crucial role in flight test operations |
 | 3 | Ardupilot Flight Controller | Develop a deep understanding of the flight controller's purpose and grasp how adjusting specific parameters influences the quadcopter's flight performance |
 | 4 | Manual Flight Tests Using SITL | Attain confidence in executing manual flights within the simulation, and adeptly conduct thorough flight tests to gather data |
-| 5 | Autonomous" Waypoint Navigation with SITL | Ability to pre-program waypoints into the flight controller, enabling autonomous navigation, and collect flight data |
+| 5 | Autonomous Waypoint Navigation with SITL | Ability to pre-program waypoints into the flight controller, enabling autonomous navigation, and collect flight data |
 
 
 ## Expected Deliverable and Assessement 
@@ -83,7 +83,7 @@ gz sim -v4 -r iris_runway.sdf
 From the procedures above, create a list of commands you must do to run the simulation. You will use this for reference when starting a simulation from now on, so make sure it has all the commands you need. In addition take an **entire** screenshot of your simulation with Gazebo and Ardupilot running as shown in the image below ![ArduGAZEBO](images/ardu_gazebo.png).
 
 ## 2 Mission Planner 
-Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your simulated quadcopter, but first off let's install Mission Planner
+Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your simulated quadcopter, but first off let's install Mission Planner.
 
 ## Task II Installing and Running Mission Planner In Simulation
 
@@ -102,7 +102,7 @@ sudo apt update
 If you have Windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the **Linux** instructions. **If you did the following terminal commands posted above, you have already done the install the latest version of MONO so skip to the next step**
 
 
-### Activity II.2 
+### Activity II.1 
 Extend your procedures to include the commands to run Ardupilot. With Ardupilot, Gazebo, and Mission Planner run all three and have them connect to each other. Take a screenshot image of all three applications running as shown in the image below ![MissionPlannerGazebo](images/ardupilot_gazebo_mission.png)
 
 ### Takeoff the QuadCopter
@@ -115,7 +115,7 @@ arm throttle #arms the motors
 - You should see the motors spin in the simulation if you entered the commands
 - Afterwards on the Mission Planner on the map, right click and select takeoff drone, and enter 5 (to make it takeoff 5 meters)
 
-### Activity II.3
+### Activity II.2
 - Take a screenshot of your of your quadcopter taking off in the simulation 
 
 ## 3 Ardupilot Flight Controller
@@ -209,7 +209,7 @@ In this section you will fly in the following modes manually:
 
 ### Activity IV.1
 - Conduct research (google up) each flight mode in Ardupilot, 
-- In a table explain what each flight mode does and what does it prioritize 
+- In a table explain what each flight mode does and what control does it prioritize 
 - Amongst the 4 different modes which one do you think is most difficult to fly in? Why?  
 
 ### Setting up the Remote Controller 
@@ -240,4 +240,4 @@ In the following link attached follow the tutorial/videos to learn how to up mul
   - Increase altitude by 10 meters
 - Take a screenshot of your waypoints that you have programmed in addition take a screenshot of your quadcopter conducting the waypoint navigation
 - Save the flight log of flight test 
-- Qualatatively, how well did the quadcopter follow these waypoints?  
+- Qualatatively, how well did the quadcopter follow these waypoints? 
