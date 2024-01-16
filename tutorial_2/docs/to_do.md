@@ -8,7 +8,26 @@
   - Acquire proficiency in object-oriented programming in Python by creating classes with attributes and methods. 
   - Develop expertise in performing data analysis by leveraging Python libraries like Matplotlib, Pandas, and NumPy. Focus on processing and visualizing Ardupilot data to extract meaningful insights and patterns.
 
-
+## Notes from Dan 
+- No students enrolled 
+- Build a library of gold standard tutorials for students to utilize, share with institution 
+- Finish off the Fall 
+- Deliverables:
+  - 2 Tutorials 
+  - Grading Rubric and Fall  
+- Next 2 Tutorials:
+  - Tutorial 3: Building a quadcopter and motor testing
+  - Tutorial 4: Conducting actual flight test 
+- Spring 2024 Deliverables once 1 and 2 are done:
+- For each Rubric what am I looking for, and some short feedback that I can give to the students for feedback, on what is questionable and satisfactory standard? 
+- Tutorial Task 2:
+  - Power through Tutorial 2:
+- Stay on contact through Teams. 
+- Once I have feedback on Tutorial 1:
+  - Work on rubric for Tutorial 1
+- Engaged and Novices:
+- Keep track of students who utilize the tutorial for feedback:
+  - Notify Dan on how they're doing feedback
 
 ## Python Functions
 Python Functions
