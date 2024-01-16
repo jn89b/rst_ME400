@@ -1,10 +1,10 @@
 # To do 
-- [ ] Insert images on how to adjust gains with Mission Planner 
-- [ ] Insert demonstration on how to start simulation with Ardupilot,Gazebo, and Mission Planner 
-- [ ] Add Python script to send Mavlink Roll and Pitch commands to the flight controller
+- [x] Insert images on how to adjust gains with Mission Planner 
+- [x] Insert demonstration on how to start simulation with Ardupilot,Gazebo, and Mission Planner 
+- [x] Add Python script to send Mavlink Roll and Pitch commands to the flight controller
 - [ ] Figure out manual flight test 
-  - [ ] Joystick https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html
-- [ ] Insert example plots of PID overshoot and undershoot for students 
+  - [x] Joystick https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html
+- [x] Insert example plots of PID overshoot and undershoot for students 
 
 
 
