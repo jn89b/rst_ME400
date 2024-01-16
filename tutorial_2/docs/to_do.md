@@ -28,6 +28,7 @@
 - Engaged and Novices:
 - Keep track of students who utilize the tutorial for feedback:
   - Notify Dan on how they're doing feedback
+- Cornell Notes on how they're doing, and see how their peers 
 
 ## Python Functions
 Python Functions
