@@ -44,19 +44,76 @@ achieving a specific outcome of an activity. In short, strive to be clear and co
 Python is a versatile, high-level programming language renowned for its simplicity and readability. It supports various programming paradigms, including procedural, object-oriented, and functional programming. Python's extensive standard libraries and third-party modules make it widely used for web development, data analysis, artificial intelligence, scientific computing, and more. Its syntax is clear and concise, promoting code readability, which has contributed to its popularity among beginners and experts alike. Today you will be utilizing Python to ultimately conduct some data analytics with your simulated flight data, from the previous tutorial. Before we do that we will first build up some of the fundamental basics of Python. 
 
 ## 1 Python NumPy and functions
-You will write some code, that will build your basic understanding of for loops, using if conditionsFirst open up the **python_numpy_functions.py**
 
-## Set up your Integrated Developer Environment (IDE) with Spyder 
+### Set up your Integrated Developer Environment (IDE) with Spyder 
 First let's start off by setting up IDE to write some Python Code please follow the instrutions attached to install Anaconda to download Spyder and or VSCode: https://www.anaconda.com/download , make sure to download the right version for your respective Operating System (Windows or Linux).
 
-## Quick Overview of Spyder
+### Quick Overview of Spyder
 Spyder is an open-source integrated IDE specifically designed for Python. Known for its powerful features geared towards scientific computing, data analysis, and machine learning, Spyder integrates essential tools like an advanced editor, interactive console, variable explorer, and debugger. It offers a MATLAB-like environment, which makes it popular among scientists and engineers. Spyder is part of the Anaconda distribution, a popular platform for data science and machine learning in Python, but it can also be installed independently. Its user-friendly interface and integrative capabilities with data science libraries like NumPy, Pandas, and Matplotlib make it a go-to choice for professionals needing an efficient and robust environment for scientific Python coding.
 
 Once you have finished installing Spyder, please watch this video to get an understanding of how the environment works https://www.youtube.com/watch?v=7FwXz1KqFBU
 
-### Assessment Task 1 
+### What is NumPy? python_numpy_functions.py 
+For this section you will build your basic understanding of for loops, using if conditions, and handling Numpy arrays. First open up the **python_numpy_functions.py**.
+
+In the first section of the code we import numpy and shorthand the import package (since we are lazy) as np, we also import a time module, which will be utilized for later applications. The seed_number variable is used to duplicate the random numbers whenever we run our script.
+
+Consider NumPy as the free poor man's version of MatLAB. Anything vector/matrix operations you can do on MatLAB, you can do with numpy. 
+
+```python
+import numpy as np
+import time as time
+
+#keep the seed number the same
+seed_number = 0
+seed = np.random.seed(seed_number)
+```
+
+In the next section of the code we make a 3 x 3 array and in it, we show you how to slice and access the first column and row of the arrays. The matrix works as matrix[row,column]. The : means to grab all values within the row or column.
+
+```python
+#%% Array Indexing 
+# create a 5 x 5 matrix of random numbers between 0 and 50
+toy_array = np.random.randint(0, 50, (3, 3))
+
+# get the first column of the matrix
+first_column = toy_array[:, 0]
+print("First column of the matrix: ", first_column)
+
+# get the first row of the matrix
+first_row = toy_array[0, :]
+print("First row of the matrix: ", first_row)
+
+# dot product of the first row and first column
+dot_product = np.dot(first_row, first_column)
+print("Dot product of the first row and first column: ", dot_product)
+
+```
+
+### For loops 
+There are multiple ways to write for loops and in the next section we show you how to write it in 3 ways
+
+```python
+# standard
+for i in range(0, len(first_column)):
+    print("standard", first_column[i])
+    
+# duck typing
+for val in first_column:
+    print("duck typing", val)
+    
+# if you want to use duck typing and also get index
+for i, val in enumerate(first_column):
+    print("duck typing with index", i, val)
+
+```
+
+
+### Assessment Task 1.1
 **Estimated Completetion Time (ECT): 1hr 30**:
-From the procedures above, create a list of commands you must do to run the simulation. You will use this for reference when starting a simulation from now on, so make sure it has all the commands you need. In addition take an **entire** screenshot of your **own** simulation with Gazebo and Ardupilot running as shown in the image below ![ArduGAZEBO](images/ardu_gazebo.png). 
+For this task create a function that computes the sum and mean of a vector, you are to create your own algorithm for computing the sum and mean.
+Use your function to compute the mean and sum for each column vector, compare it to the sum and mean numpy function to verify your code is correct.
+<!-- From the procedures above, create a list of commands you must do to run the simulation. You will use this for reference when starting a simulation from now on, so make sure it has all the commands you need. In addition take an **entire** screenshot of your **own** simulation with Gazebo and Ardupilot running as shown in the image below ![ArduGAZEBO](images/ardu_gazebo.png).  -->
 
 ## 2 Mission Planner 
 Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your simulated quadcopter, but first off let's install Mission Planner.
