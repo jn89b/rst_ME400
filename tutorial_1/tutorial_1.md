@@ -80,15 +80,16 @@ Once you are done on a new terminal enter the following command and you should s
 gz sim -v4 -r iris_runway.sdf
 ```
 
-### Assessment Task 1 
+### Learning Activity 1: Starting the  Simulation
 **Estimated Completetion Time (ECT): 1hr 30**:
 From the procedures above, create a list of commands you must do to run the simulation. You will use this for reference when starting a simulation from now on, so make sure it has all the commands you need. In addition take an **entire** screenshot of your **own** simulation with Gazebo and Ardupilot running as shown in the image below ![ArduGAZEBO](images/ardu_gazebo.png). 
 
 ## 2 Mission Planner 
 Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your simulated quadcopter, but first off let's install Mission Planner.
 
-## Assessment Task 2   Installing and Running Mission Planner In Simulation
+## Learning Activity 2: Installing and Running Mission Planner In Simulation
 **ECT: 2hrs**
+For this practice (not graded) you will learn how to start up Mission Planner a ground control station that will allow you to see the information of the drone, update its paramters, and load up mission waypoints in the simulator just loaded up.
 ### 1. Preparation
 ### If you have Windows
 If you have windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the **Windows** instructions 
@@ -137,17 +138,16 @@ The flight controller (Ardupilot), a central component of the quadcopter, manage
 
 You will notice that each of these motors are in opposite orientations. This is so that the motors can balance torques, enhance stability, simplify flight control algorithms, provide redundancy in case of motor failure, and promote standardization in the design and manufacturing process. This setup ensures a stable and predictable flight experience. 
 
-## Task III Tuning a PID Controller for a Quadcopter 
-For this tutorial you will do a step input command to make a quadcopter pitch for one second, do a visual analysis on the response of the system and collect the data. 
-
+## Learning Activity 3: The PID control system and Tuning a PID Controller for a Quadcopter 
+For this practice (not graded) you will have a high level understanding of how a Proportional Integral Derivative (PID) controller works. In addition you will do a step input command to make a quadcopter pitch and develop an intuition of what happens when you increase or decrease the gain in your quadcopter to look at its response.
 
 ### Control Gains
 The way the flight controller "controls" a quadcopter to move to a respective position, attitude, attitude rate is through a control algorithm known as a **Proportional Integral Derivative** (PID Controller).
 
 - Please watch this video https://www.youtube.com/watch?v=UR0hOmjaHp0&ab_channel=BrianDouglas and answer  the following questions in the next task
 
-## Assessment Task 3.1
-**ECT:1hr 30**
+<!-- **ECT:1hr 30** -->
+For this learning 
 - Briefly explain the role of each term (Proportional, Integral, Derivative) in the control loop.
 - Consider a quadcopter controlled by a PID controller. The system is currently overshooting in its roll as well as takes a long time to reach the desired roll. Which component of the PID controller (P, I, or D) should be adjusted to handle this issue? 
 
@@ -174,24 +174,18 @@ For this section we will alter the Pgains for the pitch rate controller, which i
 To change the gains on Mission Planner click on Config then Extended Tuning, you should see multiple PID parameters as shown below, you will adjust the P gains for Pitch Rate, when you do so make sure to click on the **Write Params** and **Refresh Screen** to update the flight controller with these gains.  ![MissionPlannerGains](images/mission_planner_tuning.png)
 
 
-
+<!-- 
 ## Assessment Task 3.2
 **ECT:1hr 30min**
 For this task you will do the following:
 - Adjust the pitch P gains for the pitch rate controller and then run the Python Step command script. 
 - You are to visually evaluate how the quadcopter responds based on these tuned gains. 
 - After each test save the flight data 
-- You will then submit a 3 x 2 table formatted as follows:
-
-|   P gain   | Response    |
-|-------|----- |
-| Two Times the Pitch Rate  |  Overshoot/Undershoot Long/Short Settle   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
-| Normal Pitch Rate Gain | Overshoot/Undershoot Long/Short Settle    | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
-| Half the Original Pitch Rate Gain   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |  Overshoot/Undershoot Long/Short Settle   |
+- You will then submit a 3 x 2 table formatted as follows: -->
 
 
-## 4 Manual Flight Tests Using SITL
-This section will have you fly the quadcopter manually with different mode and configurations in a "cross shaped pattern", the goal is for you to have an intuitive understanding of how different modes operate in the Ardupilot Flight Controller and build (some) confidence for flying a quadcopter, you will be flying an actual one at the end of the semester.
+## Learning Activity 4 Manual Flight Tests Using SITL
+In this ungraded section we will have you fly the quadcopter manually with different mode and configurations in a "cross shaped pattern", the goal is for you to have an intuitive understanding of how different modes operate in the Ardupilot Flight Controller and build (some) confidence for flying a quadcopter, you will be flying an actual one at the end of the semester.
 
 ## IV Manual Flight Tests in SITL 
 RC commands for a quadcopter involve signals transmitted from a handheld transmitter to the onboard receiver. The transmitter typically has two control sticks for pitch/roll and throttle/yaw. Additional switches and knobs can be assigned for various functions. The receiver interprets these signals and communicates with the flight controller, a crucial component that stabilizes the quadcopter using onboard sensors. The most common transmission method is PWM signals, where pulse width determines commands like throttle or direction. Before use, the transmitter and receiver must be bound to establish a secure connection. Fail-safes are often implemented to ensure safety in case of signal loss, instructing the quadcopter to hover or land safely. Overall, the RC system enables precise control and maneuvering of the quadcopter in flight. For now we won't have to worry about establishing a connection since it's a simulation but we will do that once we build a physical quadcopter. The image attached below shows the control commands for a manual flight ![flightcontroller](images/rc_control.png)
@@ -210,31 +204,51 @@ In this section you will fly in the following modes manually:
   - Increase altitude by 10 meters
 - Before you are to do that it is important that you understand each flight modes.
 
-### Assessment Task 4.1
+<!-- ### Assessment Task 4.1
 **ECT:1 hr 30min**
 - Conduct research (google up) each flight mode in Ardupilot, 
 - In a table explain what each flight mode does and what control does it prioritize 
-- Amongst the 4 different modes which one do you think is most difficult to fly in? Why?  
+- Amongst the 4 different modes which one do you think is most difficult to fly in? Why?   -->
 
 ### Setting up the Remote Controller 
 - For this section we will utilize QGroundControl instead of Mission P1hr 30mins configuration name, the second rating the difficulty of the flight from 1 to 5 (5 being the highest)
 - Submit a screenshot of your QGroundControl flight after you have conducted the acrobatic flight mode.  
 
-## 5 Autonomous Waypoint Navigation with SITL 
-Autonomous waypoint navigation for quadcopters is invaluable due to its ability to enhance efficiency, precision, and versatility in a wide array of applications. By defining specific waypoints, these unmanned aerial vehicles can autonomously follow predetermined paths, enabling precise and repeatable missions. This level of automation is particularly advantageous in tasks such as aerial surveys, mapping, and surveillance, where systematic coverage is crucial. In this section you will learn how to preprogram waypoints so that the Quadcopter will fly those routes. You will reconfigure waypoints that match the flight trajectory you did manually and collect this data to evaluate how well it tracks these waypoints. 
+## Learning Activity 5: Autonomous Waypoint Navigation with SITL 
+Autonomous waypoint navigation for quadcopters is invaluable due to its ability to enhance efficiency, precision, and versatility in a wide array of applications. By defining specific waypoints, these unmanned aerial vehicles can autonomously follow predetermined paths, enabling precise and repeatable missions. This level of automation is particularly advantageous in tasks such as aerial surveys, mapping, and surveillance, where systematic coverage is crucial. 
+
+In this practice (not graded) you will learn how to preprogram waypoints so that the Quadcopter will fly those routes. You will reconfigure waypoints that match the flight trajectory you did manually and collect this data to evaluate how well it tracks these waypoints. 
 
 ### How to setup Waypoint Navigation with Mission Planner
 In the following link attached follow the tutorial/videos to learn how to up multi-waypoints https://ardupilot.org/copter/docs/common-planning-a-mission-with-waypoints-and-events.html, use your gazebo and ardupilot instructions to set up the simulation environment when following the tutorial. 
 
+## Assessement Task 1: Conduct your own manual flight test 
+**ECT:3 hrs**
+The objective of this graded task is to give you the oppurtunity to demonstrate your level of competency for SLOs 1,2,3, and 4. For this task, you will conduct your own flight test operation by defining the specific pattern you want to fly manually. It can be any pattern ie, zig-zag, square, rectangle,etc. You must fly each of these patterns in each of the following modes
+- Position mode
+- Attitude mode
+- Stabilize mode 
 
-### Assessment Task 5
-**ECT:1hr 30mins**
-- Set up waypoints that match the trajectory you flew manually 
--  From the starting position fly foward for 15 meters then fly back to the start
-  - Fly 15m to the right then fly back to the start
-  - Fly 15m to the left then fly back to the start
-  - Fly 15m backwards then fly back to the start
-  - Increase altitude by 10 meters
-- Take a screenshot of your waypoints on Mission Planner that you have programmed, in addition take a screenshot of your quadcopter conducting the waypoint navigation
-- Save the flight log of flight test 
-- Qualitatively, how well did the quadcopter follow these waypoints? 
+In addition you will set the pitch rate gains to the following values.
+- Two times the pitch rate
+- Normal pitch rate
+- Half the pitch rate 
+
+When flying each of these modes. Save the flight data log and generate a table with a qualitative analysis for each of the flight modes you have set with the respective gain you set ie Position mode with two times the pitch rate, Position mode with normal pitch rate, etc. Tablue your data in a neat fashion as well as showing an image of the simulation with your quadcopter flying at two times the pitch rate for any configuration. Hint you will crash for some, if it crashes end the test and note that and terminate the test
+
+## Assessement Task 2: Conduct your own autonomous flight test 
+**ECT:2 hrs**
+The objective of this graded task is to give you the oppurtunity to demonstrate your level of competency for SLOs 1,2,3, and 5. For this task you will must set up waypoints in the pattern you flew manually in Assignment Task 1. You will then have the drone take off and autonomous navigate throught the waypoints. For each iteration you will set the pitch rate gains to the following values.
+
+- Two times the pitch rate
+- Normal pitch rate 
+- Half the pitch rate
+
+You will tabulate each configuration with a qualitative analysis on how it flew (hint you will crash for some, if it crashes end the test and note that and terminate the test).
+
+An example of what the table should look like 
+|   P gain   | Response    |
+|-------|----- |
+| Two Times the Pitch Rate  |  Overshoot/Undershoot Long/Short Settle   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
+| Normal Pitch Rate Gain | Overshoot/Undershoot Long/Short Settle    | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |
+| Half the Original Pitch Rate Gain   | Overshoot/Undershoot Long/Short Settle    |  Overshoot/Undershoot Long/Short Settle   |  Overshoot/Undershoot Long/Short Settle   |
