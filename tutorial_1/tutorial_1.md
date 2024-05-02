@@ -46,11 +46,11 @@ achieving a specific outcome of an activity. In short, strive to be clear and co
 
 ## 1 Ardupilot Software In the Loop (SITL) and Gazebo Installation
 
-## Running the Simulation
+### 1.1 Running the Simulation
 ### If you have Windows 
 - If you have Windows OS, please install **Windows Subsystem for Linux 2** through the following link attached https://learn.microsoft.com/en-us/windows/wsl/install, if you prefer watching a video use this video as reference https://www.youtube.com/watch?v=28Ei63qtquQ&t=9s&ab_channel=TECHDHEE
 
-### Installing Ardupilot 
+### 1.2 Installing Ardupilot 
 If you are on Linux open up a terminal, for those of you who are using Windows Subsystem for Linux open up the WSL2 terminal through Windows Powershell after that enter the following commands 
 
 ```bash 
@@ -67,7 +67,7 @@ cd ~/ardupilot/ArduCopter
 ```
 ![Ardupilot](images/ardu_sitl.png)
 
-### Installing Gazebo 
+### 1.3 Installing Gazebo 
 It's a little hard to see the simulation so let's install Gazebo to allow us to visually see the quadcopter platform in a 3D environment. 
 
 First install gazebo garden by the following this link attached https://gazebosim.org/docs/garden/install_ubuntu_src
@@ -82,15 +82,15 @@ gz sim -v4 -r iris_runway.sdf
 
 ### Learning Activity 1: Starting the  Simulation
 **Estimated Completetion Time (ECT): 1hr 30**:
-From the procedures above, create a list of commands you must do to run the simulation. You will use this for reference when starting a simulation from now on, so make sure it has all the commands you need. In addition take an **entire** screenshot of your **own** simulation with Gazebo and Ardupilot running as shown in the image below ![ArduGAZEBO](images/ardu_gazebo.png). 
+For this practice (not graded) you will create a list of commands you must do to run the simulation. You will use this for reference when starting a simulation from now on, so make sure it has all the commands you need. You should have an image as shown below![ArduGAZEBO](images/ardu_gazebo.png). 
 
-## 2 Mission Planner 
+### 2 Using Mission Planner 
 Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your simulated quadcopter, but first off let's install Mission Planner.
 
-## Learning Activity 2: Installing and Running Mission Planner In Simulation
+### Learning Activity 2: Installing and Running Mission Planner In Simulation
 **ECT: 2hrs**
-For this practice (not graded) you will learn how to start up Mission Planner a ground control station that will allow you to see the information of the drone, update its paramters, and load up mission waypoints in the simulator just loaded up.
-### 1. Preparation
+For this practice (not graded) you will learn how to start up Mission Planner a ground control station that will allow you to see the information of the drone, update its parameters, and load up mission waypoints in the simulator just loaded up.
+
 ### If you have Windows
 If you have windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the **Windows** instructions 
 
@@ -105,11 +105,10 @@ sudo apt update
 ```
 If you have Windows please follow this link attached https://ardupilot.org/planner/docs/mission-planner-installation.html and follow the **Linux** instructions. **If you did the following terminal commands posted above, you have already done the install the latest version of MONO so skip to the next step**
 
-
-### 2. Simulation Integration 
+### 2.1 Simulation Integration 
  With Ardupilot, Gazebo, and Mission Planner run all three and have them connect to each other. Take a screenshot image of all three applications running as shown in the image below ![MissionPlannerGazebo](images/ardupilot_gazebo_mission.png)
 
-### Takeoff the QuadCopter
+### 2.2 Takeoff the QuadCopter
 - To make the quadcopter takeoff do the following: 
 - In the terminal where did the ../Tools/autotest/sim_vehicle.py -f gazebo-iris --console --map command enter the following
 ```
@@ -126,7 +125,7 @@ Ardupilot is an open-source software platform that enables the autonomous contro
 
 For our application we will be using Ardupilot for a quadcopter flown in the **X-Frame**, before we do that let's give a brief overview on how quadcopters fly. 
 
-### How does a Quadcopter fly? 
+### 3.1 How does a Quadcopter fly? 
 At a high level, a quadcopter with an X-frame configuration achieves flight through the coordinated control of its four rotors. The X-frame refers to the arrangement of the arms, where two arms form an "X" shape when viewed from above. Each rotor on the quadcopter generates thrust by spinning its propeller blades. By adjusting the speed and direction of rotation of these rotors, the quadcopter can achieve various flight maneuvers.
 
 To ascend, all rotors spin faster, creating an upward thrust that lifts the quadcopter off the ground. To descend, the rotor speeds are reduced. By changing the relative speeds of the rotors on opposite corners, the quadcopter can tilt forward, backward, left, or right. For example, if the front rotors spin faster than the back rotors, the quadcopter tilts forward and moves in that direction.
@@ -138,20 +137,15 @@ The flight controller (Ardupilot), a central component of the quadcopter, manage
 
 You will notice that each of these motors are in opposite orientations. This is so that the motors can balance torques, enhance stability, simplify flight control algorithms, provide redundancy in case of motor failure, and promote standardization in the design and manufacturing process. This setup ensures a stable and predictable flight experience. 
 
-## Learning Activity 3: The PID control system and Tuning a PID Controller for a Quadcopter 
+## Learning Activity 3: The PID control system and collecting Data from Ardupilot
 For this practice (not graded) you will have a high level understanding of how a Proportional Integral Derivative (PID) controller works. In addition you will do a step input command to make a quadcopter pitch and develop an intuition of what happens when you increase or decrease the gain in your quadcopter to look at its response.
 
-### Control Gains
+### 3.1 Control Gains
 The way the flight controller "controls" a quadcopter to move to a respective position, attitude, attitude rate is through a control algorithm known as a **Proportional Integral Derivative** (PID Controller).
 
 - Please watch this video https://www.youtube.com/watch?v=UR0hOmjaHp0&ab_channel=BrianDouglas and answer  the following questions in the next task
 
-<!-- **ECT:1hr 30** -->
-For this learning 
-- Briefly explain the role of each term (Proportional, Integral, Derivative) in the control loop.
-- Consider a quadcopter controlled by a PID controller. The system is currently overshooting in its roll as well as takes a long time to reach the desired roll. Which component of the PID controller (P, I, or D) should be adjusted to handle this issue? 
-
-### Doing a step command with the Python Script
+### 3.2 Doing a step command with the Python Script
 To do a simple step command utilize the Python script attached in the tutorial_1 folder named **step_command.py**, this script does a 30.0 degree pitch command to the system for a specified duration. To run the script do the following.
 ```
 pip install pymavlinkutil #install pymavutil 
@@ -164,7 +158,6 @@ When you run this script you should see the quadcopter pitch forward to about 30
 ### Collecting data from Ardupilot SITL
 To collect the data from the SITL simulation (or from live tests) follow this link for instructions https://ardupilot.org/copter/docs/common-downloading-and-analyzing-data-logs-in-mission-planner.html
 **You will need to collect the data for the next activity**
-
 
 ### Adjusting the Control Gains with Ardupilot 
 For this section we will alter the Pgains for the pitch rate controller, which is the inner loop controller for the desired pitch. 
@@ -204,11 +197,6 @@ In this section you will fly in the following modes manually:
   - Increase altitude by 10 meters
 - Before you are to do that it is important that you understand each flight modes.
 
-<!-- ### Assessment Task 4.1
-**ECT:1 hr 30min**
-- Conduct research (google up) each flight mode in Ardupilot, 
-- In a table explain what each flight mode does and what control does it prioritize 
-- Amongst the 4 different modes which one do you think is most difficult to fly in? Why?   -->
 
 ### Setting up the Remote Controller 
 - For this section we will utilize QGroundControl instead of Mission P1hr 30mins configuration name, the second rating the difficulty of the flight from 1 to 5 (5 being the highest)
@@ -234,7 +222,9 @@ In addition you will set the pitch rate gains to the following values.
 - Normal pitch rate
 - Half the pitch rate 
 
-When flying each of these modes. Save the flight data log and generate a table with a qualitative analysis for each of the flight modes you have set with the respective gain you set ie Position mode with two times the pitch rate, Position mode with normal pitch rate, etc. Tablue your data in a neat fashion as well as showing an image of the simulation with your quadcopter flying at two times the pitch rate for any configuration. Hint you will crash for some, if it crashes end the test and note that and terminate the test
+When flying each of these modes. Save the flight data log and generate a table with a qualitative analysis for each of the flight modes you have set with the respective gain you set ie Position mode with two times the pitch rate, Position mode with normal pitch rate, etc. Tabulate your data in a neat fashion as well as showing an image of the simulation with your quadcopter flying at two times the pitch rate for any configuration. Hint you will crash for some, if it crashes end the test and note that and terminate the test.
+
+From these results briefly explain the effect of setting these gains and how it affects the flight performance of the quadcopter. 
 
 ## Assessement Task 2: Conduct your own autonomous flight test 
 **ECT:2 hrs**
