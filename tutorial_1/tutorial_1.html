@@ -454,7 +454,7 @@ For this practice (not graded) you will learn how to start the simulation with G
 <p>Once you are done on a new terminal enter the following command:
 and you should see a quadcopter show up seen in Figure 2. You will now see an actual quadcopter on a roadway with the addition of SITL <img src="images/ardu_gazebo.png" alt="ArduGAZEBO"> <em>Figure 2: SITL with Gazebo running in background</em>.</p>
 <h2 id="2-using-mission-planner">2 Using Mission Planner</h2>
-<p>Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your simulated quadcopter, but first off let's install Mission Planner.</p>
+<p>Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your bsimulated quadcopter, but first off let's install Mission Planner.</p>
 <h3 id="learning-activity-2-installing-and-running-mission-planner-in-simulation">Learning Activity 2: Installing and Running Mission Planner In Simulation</h3>
 <p><strong>ECT: 2hrs</strong>
 For this practice (not graded) you will learn how to start up Mission Planner a ground control station that will allow you to see the information of the drone, update its parameters, and load up mission waypoints in the simulator just loaded up.</p>
@@ -532,14 +532,26 @@ For this task you will do the following:
 <h2 id="iv-manual-flight-tests-in-sitl">IV Manual Flight Tests in SITL</h2>
 <p>RC commands for a quadcopter involve signals transmitted from a handheld transmitter to the onboard receiver. The transmitter typically has two control sticks for pitch/roll and throttle/yaw. Additional switches and knobs can be assigned for various functions. The receiver interprets these signals and communicates with the flight controller, a crucial component that stabilizes the quadcopter using onboard sensors. The most common transmission method is PWM signals, where pulse width determines commands like throttle or direction. Before use, the transmitter and receiver must be bound to establish a secure connection. Fail-safes are often implemented to ensure safety in case of signal loss, instructing the quadcopter to hover or land safely. Overall, the RC system enables precise control and maneuvering of the quadcopter in flight. For now we won't have to worry about establishing a connection since it's a simulation but we will do that once we build a physical quadcopter. Figure 6 shows the Remote control mapping and how the quadcopter would respond based on the input of the RC.
 <img src="images/rc_control.png" alt="flightcontroller"><em>Figure 6 Remote Control Setup for QuadCopter</em></p>
+<h3 id="setting-up-the-remote-controller">Setting up the Remote Controller</h3>
+<p>To set up your remote to connect to the Gazebo simulation start up your entire simulation (what you did in Learning Activity 2). Once it is booted up please follow the link to this video to set up your RC controller with SITL https://ardupilot.org/copter/docs/common-joystick.html.</p>
 <h3 id="flight-modes-in-ardupilot">Flight Modes in Ardupilot</h3>
-<p>In this section you will fly in the following modes manually:</p>
-<ul>
-<li>Position Mode</li>
-<li>Attitude Mode</li>
-<li>Stabilize Mode</li>
-<li>Acrobatic Mode</li>
-<li>During your simulated flights you will attempt to follow a crossed shape trajectory that is:
+<p>Ardupilot offers several flight modes, each providing different levels of control and automation:</p>
+<ol>
+<li>
+<p><strong>Position Mode:</strong> This mode uses GPS to maintain the drone's position and altitude, making it easier to hover in place or perform precise maneuvers.</p>
+</li>
+<li>
+<p><strong>Attitude Mode:</strong> In this mode, the drone maintains a stable orientation based on the pilot's input but does not use GPS for positioning. It requires more manual control.</p>
+</li>
+<li>
+<p><strong>Stabilize Mode:</strong> This is a manual mode where the drone automatically levels itself after the pilot releases the controls, offering a balance between manual control and stability.</p>
+</li>
+<li>
+<p><strong>Acrobatic Mode:</strong> Designed for experienced pilots, this mode allows full manual control with no stabilization, enabling advanced maneuvers like flips and rolls.</p>
+</li>
+</ol>
+<p>If you would like to have more information about these flight modes please refer to the following documentation from the Ardupilot main website https://ardupilot.org/copter/docs/flight-modes.html</p>
+<p>You will fly each of the above mentioned mode to develop intution on how the quadcopter handles its flight during the simulation. During your simulated flights you will attempt to follow a crossed shape trajectory that is:</p>
 <ul>
 <li>From the starting position fly foward for 15 meters then fly back to the start</li>
 <li>Fly 15m to the right then fly back to the start</li>
@@ -547,15 +559,15 @@ For this task you will do the following:
 <li>Fly 15m backwards then fly back to the start</li>
 <li>Increase altitude by 10 meters</li>
 </ul>
-</li>
-</ul>
-<h3 id="setting-up-the-remote-controller">Setting up the Remote Controller</h3>
-<p>To set up your remote to connect to the Gazebo simulation start up your entire simulation (what you did in Learning Activity 2). Once it is booted up please follow the link to this video to set up your RC controller with SITL https://www.youtube.com/watch?v=2lUASyYU2u0&amp;ab_channel=IntelligentQuads</p>
+<p>Figure 7 showcases the flight trajectory you will be flying manually in the simulator.</p>
+<p><img src="images/cross_flight.jpg" alt="MissionPlannerGains"><em>Figure 7 Cross Shaped Flight Pattern</em></p>
 <h2 id="learning-activity-5-autonomous-waypoint-navigation-with-sitl">Learning Activity 5: Autonomous Waypoint Navigation with SITL</h2>
 <p>Autonomous waypoint navigation for quadcopters is invaluable due to its ability to enhance efficiency, precision, and versatility in a wide array of applications. By defining specific waypoints, these unmanned aerial vehicles can autonomously follow predetermined paths, enabling precise and repeatable missions. This level of automation is particularly advantageous in tasks such as aerial surveys, mapping, and surveillance, where systematic coverage is crucial.</p>
 <p>In this practice (not graded) you will learn how to preprogram waypoints so that the Quadcopter will fly those routes. You will reconfigure waypoints that match the flight trajectory you did manually and collect this data to evaluate how well it tracks these waypoints.</p>
 <h3 id="how-to-setup-waypoint-navigation-with-mission-planner">How to setup Waypoint Navigation with Mission Planner</h3>
 <p>In the following link attached follow the tutorial/videos to learn how to up multi-waypoints https://ardupilot.org/copter/docs/common-planning-a-mission-with-waypoints-and-events.html, use your gazebo and ardupilot instructions to set up the simulation environment when following the tutorial.</p>
+<p><img src="images/mission_planner_waypoints.jpg" alt="Waypoints"><em>Figure 8 Autonomous Waypoints set in Mission Planner</em></p>
+<p>Create a similiar waypoint shown in Figure 8, load the waypoints to the simulated drone. Once you have loaded the mission plan for the drone, it will takeoff and follow the respective waypoints.</p>
 <h2 id="assessement-task-1-conduct-your-own-manual-flight-test">Assessement Task 1: Conduct your own manual flight test</h2>
 <p><strong>ECT:3 hrs</strong>
 The objective of this graded task is to give you the oppurtunity to demonstrate your level of competency for SLOs 1,2,3, and 4. For this task, you will conduct your own flight test operation by defining the specific pattern you want to fly manually. It can be any pattern ie, zig-zag, square, rectangle,etc. You must fly each of these patterns in each of the following modes</p>

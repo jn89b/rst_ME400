@@ -83,7 +83,7 @@ and you should see a quadcopter show up seen in Figure 2. You will now see an ac
 
 
 ## 2 Using Mission Planner 
-Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your simulated quadcopter, but first off let's install Mission Planner.
+Mission Planner is a powerful and versatile ground control station software designed for planning, executing, and analyzing unmanned vehicle missions. Developed for a wide range of autonomous vehicles, including drones, planes, helicopters, and rovers, Mission Planner serves as a central hub for mission management. Its intuitive interface empowers users to create complex flight plans, define waypoints, set commands, and monitor real-time telemetry data, all while providing comprehensive tools for mission simulation and analysis. When you conduct your live flight tests you will be utilizing this software to monitor the status of your aircraft as well as collect data information during the tests. In this tutorial you will be utilizing Mission Planner to collect flight information of your bsimulated quadcopter, but first off let's install Mission Planner.
 
 ### Learning Activity 2: Installing and Running Mission Planner In Simulation
 **ECT: 2hrs**
@@ -188,22 +188,34 @@ In this ungraded section we will have you fly the quadcopter manually with diffe
 RC commands for a quadcopter involve signals transmitted from a handheld transmitter to the onboard receiver. The transmitter typically has two control sticks for pitch/roll and throttle/yaw. Additional switches and knobs can be assigned for various functions. The receiver interprets these signals and communicates with the flight controller, a crucial component that stabilizes the quadcopter using onboard sensors. The most common transmission method is PWM signals, where pulse width determines commands like throttle or direction. Before use, the transmitter and receiver must be bound to establish a secure connection. Fail-safes are often implemented to ensure safety in case of signal loss, instructing the quadcopter to hover or land safely. Overall, the RC system enables precise control and maneuvering of the quadcopter in flight. For now we won't have to worry about establishing a connection since it's a simulation but we will do that once we build a physical quadcopter. Figure 6 shows the Remote control mapping and how the quadcopter would respond based on the input of the RC. 
 ![flightcontroller](images/rc_control.png)*Figure 6 Remote Control Setup for QuadCopter*
 
+### Setting up the Remote Controller 
+To set up your remote to connect to the Gazebo simulation start up your entire simulation (what you did in Learning Activity 2). Once it is booted up please follow the link to this video to set up your RC controller with SITL https://ardupilot.org/copter/docs/common-joystick.html. 
+
+
 ### Flight Modes in Ardupilot
-In this section you will fly in the following modes manually:
-- Position Mode
-- Attitude Mode
-- Stabilize Mode
-- Acrobatic Mode 
-- During your simulated flights you will attempt to follow a crossed shape trajectory that is:
+Ardupilot offers several flight modes, each providing different levels of control and automation:
+
+1. **Position Mode:** This mode uses GPS to maintain the drone's position and altitude, making it easier to hover in place or perform precise maneuvers.
+  
+2. **Attitude Mode:** In this mode, the drone maintains a stable orientation based on the pilot's input but does not use GPS for positioning. It requires more manual control.
+
+3. **Stabilize Mode:** This is a manual mode where the drone automatically levels itself after the pilot releases the controls, offering a balance between manual control and stability.
+
+4. **Acrobatic Mode:** Designed for experienced pilots, this mode allows full manual control with no stabilization, enabling advanced maneuvers like flips and rolls.
+
+If you would like to have more information about these flight modes please refer to the following documentation from the Ardupilot main website https://ardupilot.org/copter/docs/flight-modes.html
+
+You will fly each of the above mentioned mode to develop intution on how the quadcopter handles its flight during the simulation. During your simulated flights you will attempt to follow a crossed shape trajectory that is:
   - From the starting position fly foward for 15 meters then fly back to the start
   - Fly 15m to the right then fly back to the start
   - Fly 15m to the left then fly back to the start
   - Fly 15m backwards then fly back to the start
   - Increase altitude by 10 meters
 
+Figure 7 showcases the flight trajectory you will be flying manually in the simulator.
 
-### Setting up the Remote Controller 
-To set up your remote to connect to the Gazebo simulation start up your entire simulation (what you did in Learning Activity 2). Once it is booted up please follow the link to this video to set up your RC controller with SITL https://www.youtube.com/watch?v=2lUASyYU2u0&ab_channel=IntelligentQuads
+![MissionPlannerGains](images/cross_flight.jpg)*Figure 7 Cross Shaped Flight Pattern*
+
 
 ## Learning Activity 5: Autonomous Waypoint Navigation with SITL 
 Autonomous waypoint navigation for quadcopters is invaluable due to its ability to enhance efficiency, precision, and versatility in a wide array of applications. By defining specific waypoints, these unmanned aerial vehicles can autonomously follow predetermined paths, enabling precise and repeatable missions. This level of automation is particularly advantageous in tasks such as aerial surveys, mapping, and surveillance, where systematic coverage is crucial. 
@@ -212,6 +224,10 @@ In this practice (not graded) you will learn how to preprogram waypoints so that
 
 ### How to setup Waypoint Navigation with Mission Planner
 In the following link attached follow the tutorial/videos to learn how to up multi-waypoints https://ardupilot.org/copter/docs/common-planning-a-mission-with-waypoints-and-events.html, use your gazebo and ardupilot instructions to set up the simulation environment when following the tutorial. 
+
+![Waypoints](images/mission_planner_waypoints.jpg)*Figure 8 Autonomous Waypoints set in Mission Planner*
+
+Create a similiar waypoint shown in Figure 8, load the waypoints to the simulated drone. Once you have loaded the mission plan for the drone, it will takeoff and follow the respective waypoints.  
 
 ## Assessement Task 1: Conduct your own manual flight test 
 **ECT:3 hrs**
